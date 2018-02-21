@@ -1,0 +1,11 @@
+index:
+    path: /
+    controller: AppBundle\Controller\DefaultController::index
+
+user.read:
+    path: /users/{userId}
+    controller: AppBundle\Controller\DefaultController::readUser
+
+meeting.create:
+    path: /meetings/create/{userId}
+    controller: AppBundle\Controller\DefaultController::createMeeting

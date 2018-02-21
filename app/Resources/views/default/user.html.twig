@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Zoom integration</h1>
+
+    <h2>User #{{ user.id }}</h2>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Topic</th>
+            <th scope="col">Start time</th>
+            <th scope="col">Join url</th>
+            <th scope="col">Start url</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for meeting in user.meetings %}
+            <tr>
+                <td>{{ meeting.id }}</td>
+                <td>{{ meeting.topic }}</td>
+                <td>{{ meeting.start_time }}</td>
+                <td colspan="4"><a href="{{ meeting.join_url }}" target="_blank">{{ meeting.join_url }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('meeting.create', {userId: user.id}) }}" class="btn btn-primary">new meeting</a>
+{% endblock body %}
